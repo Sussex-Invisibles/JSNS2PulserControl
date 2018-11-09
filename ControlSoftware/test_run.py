@@ -23,7 +23,7 @@ if __name__ == '__main__':
 	    sc.set_pulse_height(args.pulse_height)
 	    print "Set Pulse Height"
 	    time.sleep(1)
-	    sc.set_pulse_number(args.pulse_num)
+	    sc.set_pulse_number(1000)
 	    print "Set Pulse Number"
 	    time.sleep(1)
 	    sc.set_pulse_delay(args.pulse_delay)
@@ -35,13 +35,19 @@ if __name__ == '__main__':
 	    sc.set_fibre_delay(0)
 	    print "Set fibre delay"
 	    time.sleep(1)
-	    sc.fire() #Fire single sequence
-	    print "Fire"
-	    while True:
-                continue
+	    npulses = 0
+	    sc.fire()
+	    npulses += 1000.
+	    if args.pulse_num % 1000. != 0.:
+	        raise ValueError("Pulse Number must be a multiple of 1000")
+	    fire = True
+	    while fire and npulses < args.pulse_num:
+	        if sc.check_firing():
+		    pass
+	        else:
+		    npulses += 1000.
+		    sc.fire()
+	        print "Number of pulses", npulses, "time active", args.pulse_delay*1e-3*npulses
     except KeyboardInterrupt:
-	    print "Stopping"
-            sc.stop()
-
-
-
+        print "Stopping"
+        sc.stop()
