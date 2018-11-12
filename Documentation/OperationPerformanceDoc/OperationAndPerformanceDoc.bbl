@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{PowermeterDataSheet}
+``Thorlabs pm100usb datasheet.''
+  \url{https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=4037}.
+\newblock Accessed: 2018-11-09.
+
+\bibitem{PMTDataSheet}
+``Hamamatsu h10721-210 datasheet.''
+  \url{https://www.hamamatsu.com/resources/pdf/etd/H10720_H10721_TPMO1062E.pdf}.
+\newblock Accessed: 2018-11-09.
+
+\end{thebibliography}
